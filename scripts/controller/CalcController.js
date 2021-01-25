@@ -12,8 +12,8 @@ class CalcController {
 		// El refers to HTML Element
 		let displayCalcEl = document.querySelector(
 			"#display");
-		let dateEl = document.querySelector("#data");
-		let timeEl = document.querySelector("#hora");
+		let dateEl = document.querySelector("#date");
+		let timeEl = document.querySelector("#time");
 
 		displayCalcEl.innerHTML = "4567";
 		dateEl.innerHTML = "25/01/2021"

@@ -36,6 +36,16 @@ class CalcController {
 		// }, 10000);
 	}
 
+	addEventListenerAll(element, events, fn){
+		
+		events.split(' ').forEach(event =>{
+
+			// false is to avoid apply function to the event more than one time (considering the bellow layers)
+			element.addEventListener(event, fn, false);
+
+		});
+	}
+
 	initButtonsEvents(){
 
 		// get the first g tag which are children of #button id
@@ -49,14 +59,20 @@ class CalcController {
 		// adding addEventListener('click') for each button in buttons
 		buttons.forEach((btn, index)=>{
 
-			btn.addEventListener('click', e => {
+			this.addEventListenerAll(btn, "click drag", e => {
 
 				// console.log(e); // catch the click event
 				// console.log(btn); // display g element (button) in the console
 				// console.log(btn.className.baseVal); // getting the class of the button (g element)
 				// console.log(index); // display the index of the button (g element)
 				console.log(btn.className.baseVal.replace("btn-", "")); // getting only what comes after "btn-" in class name of the btn (g element)
-				
+
+			});
+
+			this.addEventListenerAll(btn, "mouseover moseup mousedown", e => {
+
+				btn.style.cursor = "pointer";
+
 			});
 
 		})

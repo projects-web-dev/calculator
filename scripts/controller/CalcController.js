@@ -35,6 +35,17 @@ class CalcController {
 		// }, 10000);
 	}
 
+	initButtonsEvents(){
+
+		// get the first g tag which are children of #button id
+		// get the first g tag which are children of #parts id
+		// document.querySelector("#buttons > g", "#parts > g");
+
+		// get all g tags which are children of #button id
+		// get all g tags which are children of #parts id
+		let buttons = document.querySelectorAll("#buttons > g", "#parts > g");
+	}
+
 	setDisplayDateTime(){
 
 		this.displayDate = this.currentDate.toLocaleDateString(this._locale, {

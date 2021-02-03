@@ -13,6 +13,7 @@ class CalcController {
 		
 		this._currentDate;
 		this.initialize();
+		this.initButtonsEvents();
 	}
 
 	initialize(){
@@ -43,7 +44,22 @@ class CalcController {
 
 		// get all g tags which are children of #button id
 		// get all g tags which are children of #parts id
-		let buttons = document.querySelectorAll("#buttons > g", "#parts > g");
+		let buttons = document.querySelectorAll("#buttons > g, #parts > g");
+
+		// adding addEventListener('click') for each button in buttons
+		buttons.forEach((btn, index)=>{
+
+			btn.addEventListener('click', e => {
+
+				// console.log(e); // catch the click event
+				// console.log(btn); // display g element (button) in the console
+				// console.log(btn.className.baseVal); // getting the class of the button (g element)
+				// console.log(index); // display the index of the button (g element)
+				console.log(btn.className.baseVal.replace("btn-", "")); // getting only what comes after "btn-" in class name of the btn (g element)
+				
+			});
+
+		})
 	}
 
 	setDisplayDateTime(){
